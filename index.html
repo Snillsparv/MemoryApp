@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minnesträning - Memory Training App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Minnesträning</h1>
+            <p>Träna ditt minne i olika discipliner</p>
+        </header>
+
+        <div id="menu" class="menu">
+            <h2>Välj en disciplin:</h2>
+            <div class="discipline-grid">
+                <button class="discipline-btn" onclick="startDiscipline('numbers')">
+                    <span class="icon">🔢</span>
+                    <h3>Sifferminne</h3>
+                    <p>Memorera siffersekvenser</p>
+                </button>
+                <button class="discipline-btn" onclick="startDiscipline('words')">
+                    <span class="icon">📝</span>
+                    <h3>Ordminne</h3>
+                    <p>Kom ihåg ordlistor</p>
+                </button>
+                <button class="discipline-btn" onclick="startDiscipline('cards')">
+                    <span class="icon">🃏</span>
+                    <h3>Kortminne</h3>
+                    <p>Memorera spelkort</p>
+                </button>
+                <button class="discipline-btn" onclick="startDiscipline('patterns')">
+                    <span class="icon">🎨</span>
+                    <h3>Mönsterminne</h3>
+                    <p>Kom ihåg visuella mönster</p>
+                </button>
+            </div>
+
+            <div class="stats">
+                <h3>Dina bästa resultat:</h3>
+                <div id="highscores">
+                    <p>Sifferminne: <span id="hs-numbers">-</span></p>
+                    <p>Ordminne: <span id="hs-words">-</span></p>
+                    <p>Kortminne: <span id="hs-cards">-</span></p>
+                    <p>Mönsterminne: <span id="hs-patterns">-</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="game" class="game hidden">
+            <div class="game-header">
+                <button class="back-btn" onclick="backToMenu()">← Tillbaka</button>
+                <h2 id="game-title"></h2>
+                <div class="score">Nivå: <span id="level">1</span> | Poäng: <span id="score">0</span></div>
+            </div>
+
+            <div id="game-area" class="game-area">
+                <div id="phase-display" class="phase-display">
+                    <h3 id="phase-title">Memorera:</h3>
+                    <div id="display-area"></div>
+                    <button id="ready-btn" class="btn-primary hidden" onclick="startRecall()">Jag är redo!</button>
+                </div>
+
+                <div id="phase-recall" class="phase-recall hidden">
+                    <h3>Återge vad du minns:</h3>
+                    <div id="recall-area"></div>
+                    <button id="submit-btn" class="btn-primary" onclick="submitAnswer()">Skicka svar</button>
+                </div>
+
+                <div id="phase-result" class="phase-result hidden">
+                    <h3 id="result-title"></h3>
+                    <div id="result-details"></div>
+                    <button class="btn-primary" onclick="nextRound()">Nästa nivå</button>
+                    <button class="btn-secondary" onclick="backToMenu()">Avsluta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
