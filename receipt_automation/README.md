@@ -2,6 +2,31 @@
 
 Ett system för att automatiskt samla in kvitton och transaktioner från olika källor för företagsbokföring.
 
+## 🎯 Två System - Välj Rätt för Dig!
+
+### 📋 **SMART ORGANISERING** (Rekommenderat!)
+`organize_receipts.py` - Intelligent matchning och numrering
+
+**Perfekt för dig som:**
+- Vill ha allt numrerat i kronologisk ordning (001, 002, 003...)
+- Behöver matcha banktransaktioner med kvitton
+- Vill ha ALLA transaktioner (både in- och utbetalningar)
+- Vill generera kvitton för transaktioner utan PDF
+
+**➡️ Se [ORGANIZE_GUIDE.md](ORGANIZE_GUIDE.md) för instruktioner**
+
+### 📥 **ENKEL INSAMLING** (Grundläggande)
+`collect_receipts.py` - Samlar bara kvitton
+
+**Perfekt för dig som:**
+- Bara vill hämta alla kvitton från Gmail
+- Inte behöver matcha med banktransaktioner
+- Vill filtrera företagsutgifter från CSV
+
+**➡️ Läs vidare nedan för instruktioner**
+
+---
+
 ## 📋 Översikt
 
 Systemet kan hämta kvitton från:
