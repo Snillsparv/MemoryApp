@@ -474,7 +474,7 @@ class ReceiptOrganizer:
                 source_path = transaction['receipt_file']
                 extension = Path(source_path).suffix
 
-                target_filename = f"{number}_{date_str}_{description}{extension}"
+                target_filename = f"{number}_{date_str}_Gmail_{description}{extension}"
                 target_path = os.path.join(self.output_dir, target_filename)
 
                 shutil.copy2(source_path, target_path)
@@ -484,7 +484,7 @@ class ReceiptOrganizer:
 
             else:
                 # Generera kvitto från banktransaktion
-                target_filename = f"{number}_{date_str}_{description}.html"
+                target_filename = f"{number}_{date_str}_Bank_{description}.html"
                 target_path = os.path.join(self.output_dir, target_filename)
 
                 self.generator.generate_receipt(transaction, target_path, format='html')
@@ -513,9 +513,9 @@ class ReceiptOrganizer:
 
                 if t['match_type'] == 'gmail':
                     extension = Path(t['receipt_file']).suffix
-                    filename = f"{number}_{date_str}_{description}{extension}"
+                    filename = f"{number}_{date_str}_Gmail_{description}{extension}"
                 else:
-                    filename = f"{number}_{date_str}_{description}.html"
+                    filename = f"{number}_{date_str}_Bank_{description}.html"
 
                 writer.writerow({
                     'number': number,
