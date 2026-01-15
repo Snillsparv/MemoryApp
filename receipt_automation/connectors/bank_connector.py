@@ -32,6 +32,17 @@ class BankConnector:
                 'balance': 'Saldo'
             }
         },
+        'seb_new': {
+            'delimiter': ',',
+            'encoding': 'utf-8',
+            'skip_rows': 1,  # Första raden är beskrivningstext
+            'columns': {
+                'date': 'Bokfdag',
+                'description': 'Text',
+                'amount': 'Belopp',
+                'balance': 'Saldo'
+            }
+        },
         'swedbank': {
             'delimiter': ';',
             'encoding': 'utf-8',
@@ -130,6 +141,11 @@ class BankConnector:
 
         try:
             with open(csv_path, 'r', encoding=format_config['encoding']) as f:
+                # Hoppa över extra rader om specificerat
+                skip_rows = format_config.get('skip_rows', 0)
+                for _ in range(skip_rows):
+                    next(f)
+
                 reader = csv.DictReader(f, delimiter=format_config['delimiter'])
 
                 for row in reader:
@@ -189,8 +205,12 @@ class BankConnector:
                 try:
                     content = first_bytes.decode(encoding)
 
-                    # Kolla efter bank-specifika markörer
-                    if 'SEB' in content or 'Skandinaviska Enskilda Banken' in content:
+                    # Kolla efter bank-specifika markörer och kolumnformat
+                    # Nyare SEB-format med Bokfdag, Transdag kolumner
+                    if 'Bokfdag' in content and 'Transdag' in content:
+                        return 'seb_new'
+                    # Äldre SEB-format
+                    elif 'SEB' in content or 'Skandinaviska Enskilda Banken' in content:
                         return 'seb'
                     elif 'Swedbank' in content:
                         return 'swedbank'
