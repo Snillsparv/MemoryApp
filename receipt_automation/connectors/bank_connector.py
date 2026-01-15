@@ -34,7 +34,7 @@ class BankConnector:
         },
         'seb_new': {
             'delimiter': ',',
-            'encoding': 'utf-8',
+            'encoding': 'latin1',  # SEB använder latin1/cp1252 encoding
             'skip_rows': 1,  # Första raden är beskrivningstext
             'columns': {
                 'date': 'Bokfdag',
