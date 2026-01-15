@@ -1,0 +1,33 @@
+# Känsliga filer - DELA ALDRIG DESSA
+credentials.json
+token.pickle
+config.json
+
+# Output och temporära filer
+output/
+bank_exports/
+temp_downloads/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

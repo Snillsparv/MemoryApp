@@ -1,0 +1,12 @@
+# Gmail API
+google-auth==2.25.2
+google-auth-oauthlib==1.2.0
+google-auth-httplib2==0.2.0
+google-api-python-client==2.111.0
+
+# Web scraping (för leverantörsportaler, valfritt)
+selenium==4.16.0
+
+# För framtida Open Banking integration (valfritt)
+# requests==2.31.0
+# requests-oauthlib==1.3.1

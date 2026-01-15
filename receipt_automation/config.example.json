@@ -1,0 +1,16 @@
+{
+  "output_dir": "output",
+  "gmail": {
+    "enabled": true,
+    "credentials_path": "credentials.json",
+    "token_path": "token.pickle"
+  },
+  "bank": {
+    "enabled": true,
+    "csv_directory": "bank_exports"
+  },
+  "suppliers": {
+    "enabled": false,
+    "connectors": []
+  }
+}
